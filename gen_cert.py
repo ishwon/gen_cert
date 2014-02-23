@@ -12,6 +12,8 @@ from pyPdf import PdfFileWriter, PdfFileReader
 import StringIO
 import os
 import sys
+import base64
+import haslib
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.colors import PCMYKColor
@@ -22,7 +24,10 @@ from reportlab.pdfbase.pdfmetrics import stringWidth
 packet = StringIO.StringIO()
 # Create a new PDF with reportlab
 attendee = sys.argv[1]
-#attendee_width = stringWidth(attendee, "Times-Roman", 30)
+# Creating a certificate hash code
+hasher = hashlib.md5(attendee)
+certID = base64.urlsafe_b64encode(hasher.digest()[0:5])
+# attendee_width = stringWidth(attendee, "Times-Roman", 30)
 gold = PCMYKColor(26,23,45,11)
 can = canvas.Canvas(packet, pagesize=letter)
 can.setFillColor(gold)
@@ -33,7 +38,7 @@ can.drawCentredString(420, 225, attendee, mode=None)
 black = PCMYKColor(0,0,0,61)
 can.setFillColor(black)
 can.setFont("Courier", 8)
-can.drawString(668, 75, "Cert ID: 13-2gYNwts=", mode=None)
+can.drawString(668, 75, "Cert ID: 13-"+certID, mode=None)
 can.save()
 
 # Move to the beginning of the StringIO buffer
