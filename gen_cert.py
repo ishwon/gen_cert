@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# gen_cert.py v1.2 written by Ish Sookun <http://hacklog.in/about>
+# gen_cert.py v1.0 written by Ish Sookun <http://hacklog.in/about>
 # PDF 
 # For details about this project please visit http://hacklog.in/peg.
 #
