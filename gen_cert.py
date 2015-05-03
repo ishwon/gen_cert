@@ -1,11 +1,6 @@
 #!/usr/bin/python
 #
 # gen_cert.py v1.0 written by Ish Sookun <http://hacklog.in/about>
-# PDF 
-# For details about this project please visit http://hacklog.in/peg.
-#
-# This work is licensed under a Creative Commons Attribution 3.0 Unported License.
-# License details at http://creativecommons.org/licenses/by/3.0.
 #
 
 from pyPdf import PdfFileWriter, PdfFileReader
